@@ -1,0 +1,1 @@
+python -m nuitka --standalone --enable-plugin=pyside6 --include-data-dir=app=app --windows-icon-from-ico=app\assets\icons\Nikki_256x256.ico --output-dir=build --windows-console-mode=disable --lto=yes --show-progress --include-qt-plugins=platforms main.py
