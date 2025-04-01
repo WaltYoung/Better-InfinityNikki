@@ -36,13 +36,13 @@ class HomeInterface(ScrollArea):
         self.initWidget()
 
     def initWidget(self):
-        self.XhsCard = AuthorCard('app/assets/avatar/每日更新暖暖.jpg', '每日更新暖暖', Xhs_URL,self.tr('Click to go to the author\'s Xiaohongshu homepage'), self)
+        self.XhsCard = AuthorCard(':app/assets/avatar/每日更新暖暖.jpg', '每日更新暖暖', Xhs_URL,self.tr('Click to go to the author\'s Xiaohongshu homepage'), self)
         self.XhsCard.move(40, 120)
-        self.BiliCard = AuthorCard('app/assets/avatar/布洛妮娅de重装小兔19c.jpg', '布洛妮娅de重装小兔19c', Bili_URL,self.tr('Click to go to the author\'s Bilibili homepage'), self)
+        self.BiliCard = AuthorCard(':app/assets/avatar/布洛妮娅de重装小兔19c.jpg', '布洛妮娅de重装小兔19c', Bili_URL,self.tr('Click to go to the author\'s Bilibili homepage'), self)
         self.BiliCard.move(260, 120)
-        self.TutorialCard = AuthorCard('app/assets/icons/tutorial.ico', self.tr('Tutorial'), Tutorial_URL, self.tr('Click to view tutorial'), self)
+        self.TutorialCard = AuthorCard(':app/assets/icons/tutorial.ico', self.tr('Tutorial'), Tutorial_URL, self.tr('Click to view tutorial'), self)
         self.TutorialCard.move(480, 120)
-        self.FeedbackCard = AuthorCard('app/assets/icons/feedback.ico', self.tr('Feedback'), Feedback_URL, self.tr('Click to submit feedback'), self)
+        self.FeedbackCard = AuthorCard(':app/assets/icons/feedback.ico', self.tr('Feedback'), Feedback_URL, self.tr('Click to submit feedback'), self)
         self.FeedbackCard.move(700, 120)
         self.stacked_widget = QStackedWidget()
         self.layout.addWidget(self.stacked_widget)
