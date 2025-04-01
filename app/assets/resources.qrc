@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="/app/assets">
+    <file>avatar/布洛妮娅de重装小兔19c.jpg</file>
+    <file>avatar/每日更新暖暖.jpg</file>
+    <file>avatar/每日更新暖暖.png</file>
+    <file>icons/feedback.ico</file>
+    <file>icons/Nikki_256x256.ico</file>
+    <file>icons/tutorial.ico</file>
+    <file>language/translation_en.qm</file>
+    <file>language/translation_zh_CN.qm</file>
+  </qresource>
+</RCC>

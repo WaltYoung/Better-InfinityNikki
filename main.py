@@ -5,6 +5,7 @@ __author__ = 'Xiao'
 
 import sys
 
+import app.assets.resources
 from PySide6.QtCore import Qt, QSize, QEventLoop, QTimer, QTranslator, QCoreApplication, QSharedMemory
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QFrame, QApplication, QHBoxLayout, QMessageBox
@@ -43,7 +44,7 @@ class Window(FluentWindow):
         self.resize(500, 500)
         self.center()
         self.setWindowTitle(WindowTitle)
-        self.setWindowIcon(QIcon('app/assets/avatar/每日更新暖暖.png'))
+        self.setWindowIcon(QIcon(':app/assets/avatar/每日更新暖暖.png'))
         self.splashScreen = SplashScreen(self.windowIcon(), self)
         self.splashScreen.setIconSize(QSize(102, 102))
         self.show()
@@ -73,7 +74,7 @@ class Window(FluentWindow):
         self.resize(1000, 750)
         self.adjust_window_size()
         self.center()
-        self.setWindowIcon(QIcon('app/assets/icons/Nikki_256x256.ico'))
+        self.setWindowIcon(QIcon(':app/assets/icons/Nikki_256x256.ico'))
         self.setWindowTitle(WindowTitle)
 
     def createSubInterface(self):
@@ -94,10 +95,10 @@ class Window(FluentWindow):
     def languageChanged(self, language: str):
         cfg.saveToJson()
         if language == "简体中文":
-            self.translator.load("app/assets/language/translation_zh_CN.qm")
+            self.translator.load(":app/assets/language/translation_zh_CN.qm")
             QCoreApplication.instance().installTranslator(self.translator)
         elif language == "繁體中文":
-            # self.translator.load("app/assets/language/translation_zh_TW.qm")
+            # self.translator.load(":app/assets/language/translation_zh_TW.qm")
             # QCoreApplication.instance().installTranslator(self.translator)
             pass
         else:
