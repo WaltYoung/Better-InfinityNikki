@@ -14,7 +14,7 @@ from app.home_interface import HomeInterface
 from app.music_interface import MusicInterface
 from app.setting_interface import SettingInterface
 from app.utls.const import WindowTitle
-from qfluentwidgets import FluentIcon as FIF
+from qfluentwidgets import FluentIcon as FIF, setTheme, Theme
 from qfluentwidgets import NavigationItemPosition, FluentWindow, SubtitleLabel, setFont, SplashScreen
 
 
@@ -63,6 +63,9 @@ class Window(FluentWindow):
         self.languageChanged(cfg.language.value)
         cfg.language.valueChanged.connect(self.languageChanged)
 
+        self.themeChanged(cfg.theme.value)
+        cfg.theme.valueChanged.connect(self.themeChanged)
+
     def initNavigation(self):
         self.homeInterfaceItem = self.addSubInterface(self.homeInterface, FIF.HOME, self.tr('Home'))
         self.navigationInterface.addSeparator()
@@ -104,6 +107,14 @@ class Window(FluentWindow):
         else:
             QApplication.instance().removeTranslator(self.translator)
         self.retranslateUI()
+
+    def themeChanged(self, theme: str):
+        cfg.saveToJson()
+        if theme == "Light":
+            setTheme(Theme.LIGHT, lazy=True)
+            pass
+        else:
+            setTheme(Theme.DARK, lazy=True)
 
     def retranslateUI(self):
         self.homeInterfaceItem.setText(QApplication.translate('Window', 'Home'))

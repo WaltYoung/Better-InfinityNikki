@@ -81,43 +81,67 @@
     <name>SettingInterface</name>
     <message>
         <location filename="../../setting_interface.py" line="24"/>
-        <location filename="../../setting_interface.py" line="53"/>
+        <location filename="../../setting_interface.py" line="61"/>
         <source>Setting</source>
         <translation>设置</translation>
     </message>
     <message>
         <location filename="../../setting_interface.py" line="27"/>
-        <location filename="../../setting_interface.py" line="57"/>
+        <location filename="../../setting_interface.py" line="69"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
         <location filename="../../setting_interface.py" line="36"/>
-        <location filename="../../setting_interface.py" line="54"/>
+        <location filename="../../setting_interface.py" line="62"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
         <location filename="../../setting_interface.py" line="37"/>
-        <location filename="../../setting_interface.py" line="55"/>
+        <location filename="../../setting_interface.py" line="63"/>
         <source>Choose the display language for the software</source>
         <translation>选择软件的显示语言</translation>
     </message>
     <message>
         <location filename="../../setting_interface.py" line="44"/>
-        <location filename="../../setting_interface.py" line="58"/>
+        <location filename="../../setting_interface.py" line="64"/>
+        <source>Application Theme</source>
+        <translation>应用主题</translation>
+    </message>
+    <message>
+        <location filename="../../setting_interface.py" line="45"/>
+        <location filename="../../setting_interface.py" line="65"/>
+        <source>Choose the theme for the software</source>
+        <translation>选择软件的应用主题</translation>
+    </message>
+    <message>
+        <location filename="../../setting_interface.py" line="46"/>
+        <location filename="../../setting_interface.py" line="66"/>
+        <source>Light</source>
+        <translation>浅色</translation>
+    </message>
+    <message>
+        <location filename="../../setting_interface.py" line="46"/>
+        <location filename="../../setting_interface.py" line="67"/>
+        <source>Dark</source>
+        <translation>深色</translation>
+    </message>
+    <message>
+        <location filename="../../setting_interface.py" line="52"/>
+        <location filename="../../setting_interface.py" line="70"/>
         <source>About BetterIN</source>
         <translation>关于BetterIN</translation>
     </message>
     <message>
-        <location filename="../../setting_interface.py" line="45"/>
-        <location filename="../../setting_interface.py" line="59"/>
+        <location filename="../../setting_interface.py" line="53"/>
+        <location filename="../../setting_interface.py" line="71"/>
         <source>Copyright</source>
         <translation>版权所有</translation>
     </message>
     <message>
-        <location filename="../../setting_interface.py" line="46"/>
-        <location filename="../../setting_interface.py" line="60"/>
+        <location filename="../../setting_interface.py" line="54"/>
+        <location filename="../../setting_interface.py" line="72"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
@@ -125,20 +149,20 @@
 <context>
     <name>Window</name>
     <message>
-        <location filename="../../../main.py" line="57"/>
-        <location filename="../../../main.py" line="99"/>
+        <location filename="../../../main.py" line="70"/>
+        <location filename="../../../main.py" line="120"/>
         <source>Home</source>
         <translation>主页</translation>
     </message>
     <message>
-        <location filename="../../../main.py" line="59"/>
-        <location filename="../../../main.py" line="100"/>
+        <location filename="../../../main.py" line="72"/>
+        <location filename="../../../main.py" line="121"/>
         <source>Automatic playing</source>
         <translation>自动演奏</translation>
     </message>
     <message>
-        <location filename="../../../main.py" line="61"/>
-        <location filename="../../../main.py" line="101"/>
+        <location filename="../../../main.py" line="74"/>
+        <location filename="../../../main.py" line="122"/>
         <source>Setting</source>
         <translation>设置</translation>
     </message>

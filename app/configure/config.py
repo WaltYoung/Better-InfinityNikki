@@ -9,6 +9,8 @@ from qfluentwidgets.common.config import QConfig, OptionsConfigItem, OptionsVali
 class Config(QConfig):
     language = OptionsConfigItem(
         "基础设置", "language", "简体中文", OptionsValidator(["简体中文", "繁體中文", "English"]), restart=False)
+    theme = OptionsConfigItem(
+        "基础设置", "theme", "Light", OptionsValidator(["Light", "Dark"]), restart=False)
     def __init__(self):
         super().__init__()
 

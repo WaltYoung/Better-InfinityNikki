@@ -6,7 +6,6 @@
     <file>icons/feedback.ico</file>
     <file>icons/Nikki_256x256.ico</file>
     <file>icons/tutorial.ico</file>
-    <file>language/translation_en.qm</file>
     <file>language/translation_zh_CN.qm</file>
   </qresource>
 </RCC>
