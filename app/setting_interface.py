@@ -38,6 +38,14 @@ class SettingInterface(ScrollArea):
             texts=["简体中文", "繁體中文", "English"],
         )
         self.personalGroup.addSettingCard(self.languageCard)
+        self.themeCard = ComboBoxSettingCard(
+            configItem=cfg.theme,
+            icon=FluentIcon.BRUSH,
+            title=self.tr('Application Theme'),
+            content=self.tr('Choose the theme for the software'),
+            texts=[self.tr("Light"), self.tr("Dark")],
+        )
+        self.personalGroup.addSettingCard(self.themeCard)
         self.aboutBetterINCard = PrimaryPushSettingCard(
             text='Check update',
             icon=FluentIcon.INFO,
@@ -53,6 +61,10 @@ class SettingInterface(ScrollArea):
         self.personalGroup.titleLabel.setText(QApplication.translate('SettingInterface', 'Setting'))
         self.languageCard.setTitle(QApplication.translate('SettingInterface', 'Language'))
         self.languageCard.setContent(QApplication.translate('SettingInterface', 'Choose the display language for the software'))
+        self.themeCard.setTitle(QApplication.translate('SettingInterface', 'Application Theme'))
+        self.themeCard.setContent(QApplication.translate('SettingInterface', 'Choose the theme for the software'))
+        self.themeCard.comboBox.setItemText(0, QApplication.translate('SettingInterface', 'Light'))
+        self.themeCard.comboBox.setItemText(1, QApplication.translate('SettingInterface', 'Dark'))
 
         self.aboutGroup.titleLabel.setText(QApplication.translate('SettingInterface', 'About'))
         self.aboutBetterINCard.setTitle(QApplication.translate('SettingInterface', 'About BetterIN'))
