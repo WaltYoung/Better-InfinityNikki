@@ -6,6 +6,7 @@ __author__ = 'Xiao'
 from PySide6.QtCore import QTranslator, QCoreApplication
 from qfluentwidgets.common.config import QConfig, OptionsConfigItem, OptionsValidator, qconfig
 
+
 class Config(QConfig):
     language = OptionsConfigItem(
         "基础设置", "language", "简体中文", OptionsValidator(["简体中文", "繁體中文", "English"]), restart=False)
