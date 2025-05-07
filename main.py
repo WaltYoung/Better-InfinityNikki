@@ -51,7 +51,7 @@ class Window(FluentWindow):
         self.createSubInterface()
         self.splashScreen.finish()
         # 正式页面
-        self.homeInterface = HomeInterface(self)
+        self.homeInterface = HomeInterface(self)  # 括号内的self将当前Window实例作为父对象传递
         self.musicInterface = MusicInterface(self)
         # self.videoInterface = Widget('Video Interface', self)
         self.settingInterface = SettingInterface(self)
@@ -106,24 +106,23 @@ class Window(FluentWindow):
             pass
         else:
             QApplication.instance().removeTranslator(self.translator)
-        self.retranslateUI()
+        self.retranslateUi()
+
+    def retranslateUi(self):
+        self.homeInterfaceItem.setText(QApplication.translate('Window', 'Home'))
+        self.musicInterfaceItem.setText(QApplication.translate('Window', 'Automatic playing'))
+        self.settingInterfaceItem.setText(QApplication.translate('Window', 'Setting'))
+        self.homeInterface.retranslateUi()
+        self.musicInterface.retranslateUi()
+        self.settingInterface.retranslateUi()
+        # self.videoInterface.retranslateUi()
 
     def themeChanged(self, theme: str):
         cfg.saveToJson()
         if theme == "Light":
             setTheme(Theme.LIGHT, lazy=True)
-            pass
         else:
             setTheme(Theme.DARK, lazy=True)
-
-    def retranslateUI(self):
-        self.homeInterfaceItem.setText(QApplication.translate('Window', 'Home'))
-        self.musicInterfaceItem.setText(QApplication.translate('Window', 'Automatic playing'))
-        self.settingInterfaceItem.setText(QApplication.translate('Window', 'Setting'))
-        self.homeInterface.retranslateUI()
-        self.musicInterface.retranslateUI()
-        self.settingInterface.retranslateUI()
-        # self.videoInterface.retranslateUi()
 
 
 if __name__ == '__main__':

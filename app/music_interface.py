@@ -18,5 +18,5 @@ class MusicInterface(ScrollArea):
     def initWidget(self):
         pass
 
-    def retranslateUI(self):
+    def retranslateUi(self):
         pass

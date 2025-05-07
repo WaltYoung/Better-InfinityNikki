@@ -3,8 +3,6 @@
 
 __author__ = 'Xiao'
 
-from PySide6.QtCore import Qt, QObject
-from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QApplication
 from qfluentwidgets import ScrollArea
 from qfluentwidgets import SettingCardGroup, ComboBoxSettingCard, PrimaryPushSettingCard
@@ -57,7 +55,7 @@ class SettingInterface(ScrollArea):
         self.aboutBetterINCard.button.deleteLater()
         self.aboutGroup.addSettingCard(self.aboutBetterINCard)
 
-    def retranslateUI(self):
+    def retranslateUi(self):
         self.personalGroup.titleLabel.setText(QApplication.translate('SettingInterface', 'Setting'))
         self.languageCard.setTitle(QApplication.translate('SettingInterface', 'Language'))
         self.languageCard.setContent(QApplication.translate('SettingInterface', 'Choose the display language for the software'))
