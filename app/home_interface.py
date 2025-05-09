@@ -81,7 +81,6 @@ class AuthorCard(ElevatedCardWidget):
 class SWitchToSubInterface(CardWidget):
     def __init__(self, icon, title, content, parent=None):
         super().__init__(parent)
-        self.clicked = SignalInstance()
         self.iconWidget = IconWidget(icon)
         self.titleLabel = BodyLabel(title, self)
         self.contentLabel = CaptionLabel(content, self)
@@ -108,5 +107,3 @@ class SWitchToSubInterface(CardWidget):
 
         self.hBoxLayout.addStretch(1)
         self.hBoxLayout.addWidget(self.openButton, 0, Qt.AlignRight)
-
-        # self.openButton.clicked.emit()
