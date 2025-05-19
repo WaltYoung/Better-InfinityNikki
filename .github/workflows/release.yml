@@ -30,6 +30,8 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Build with Nuitka
+      env:
+        NUITKA_DOWNLOAD_DEPENDENCIES: "yes"
       run: |
         .\builder.bat
 
