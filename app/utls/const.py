@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __author__ = 'WaltYoung'
-__version__ = "1.0.0"
+__version__ = "0.0.2"
 __year__ = 2025
 
 WindowTitle = 'Better IN'
