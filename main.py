@@ -66,6 +66,8 @@ class Window(FluentWindow):
         self.themeChanged(cfg.theme.value)
         cfg.theme.valueChanged.connect(self.themeChanged)
 
+        self.homeInterface.AutoPlayCard.openButton.clicked.connect(lambda: self.switchInterface(1))
+
     def initNavigation(self):
         self.homeInterfaceItem = self.addSubInterface(self.homeInterface, FIF.HOME, self.tr('Home'))
         self.navigationInterface.addSeparator()
@@ -123,6 +125,9 @@ class Window(FluentWindow):
             setTheme(Theme.LIGHT, lazy=True)
         else:
             setTheme(Theme.DARK, lazy=True)
+
+    def switchInterface(self, index: int = 0):
+        self.stackedWidget.setCurrentIndex(index)
 
 
 if __name__ == '__main__':
