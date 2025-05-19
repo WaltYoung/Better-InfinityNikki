@@ -1,0 +1,2 @@
+PySide6_Fluent_Widgets==1.7.5
+pywinauto==0.6.9
