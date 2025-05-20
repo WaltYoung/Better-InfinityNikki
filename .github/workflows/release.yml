@@ -62,7 +62,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: build-artifacts
-        path: artifacts
+        path: output
 
     - name: Create Zip Package
       id: package
@@ -111,7 +111,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: build-artifacts
-        path: release-artifacts
+        path: output
 
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
