@@ -28,6 +28,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install nuitka
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Pre-install Dependency Walker
+      run: |
+        $dependsUrl = "https://dependencywalker.com/depends22_x64.zip"
+        $downloadPath = "$env:RUNNER_TEMP\depends.zip"
+        $installPath = "$env:LOCALAPPDATA\Nuitka\Nuitka\Cache\downloads\depends\x86_64"
+        New-Item -Path $installPath -ItemType Directory -Force
+        Invoke-WebRequest -Uri $dependsUrl -OutFile $downloadPath
+        Expand-Archive -Path $downloadPath -DestinationPath $installPath -Force
         
     - name: Build with Nuitka
       run: |
