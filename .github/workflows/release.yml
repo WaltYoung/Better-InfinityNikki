@@ -51,34 +51,6 @@ jobs:
           app/configure/config.json
         retention-days: 1
 
-  package:
-    needs: [build, determine-version]
-    runs-on: windows-latest
-    outputs:
-      asset-name: ${{ steps.package.outputs.asset-name }}
-
-    steps:
-    - name: Download Artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: build-artifacts
-        path: output
-
-    - name: Create Zip Package
-      id: package
-      run: |
-        $version = "${{ needs.determine-version.outputs.new-tag }}"
-        $zipName = "release-$version.zip"
-        Compress-Archive -Path output/* -DestinationPath $zipName
-        echo "asset-name=$zipName" >> $env:GITHUB_OUTPUT
-
-    - name: Upload Package
-      uses: actions/upload-artifact@v4
-      with:
-        name: release-package
-        path: ${{ steps.package.outputs.asset-name }}
-        retention-days: 1
-
   determine-version:
     needs: build
     runs-on: windows-latest
@@ -94,13 +66,41 @@ jobs:
 
     - name: Generate Semantic Version
       id: tag-generation
-      uses: mathieudutour/github-tag-action@v5
+      uses: mathieudutour/github-tag-action@v5.3.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         default_bump: minor
 
+  package:
+    needs: [build, determine-version]
+    runs-on: windows-latest
+    outputs:
+      asset-name: ${{ steps.package.outputs.asset-name }}
+
+    steps:
+    - name: Download Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-artifacts
+        path: artifacts
+
+    - name: Create Zip Package
+      id: package
+      run: |
+        $version = "${{ needs.determine-version.outputs.new-tag }}"
+        $zipName = "release-$version.zip"
+        Compress-Archive -Path artifacts/main.exe, artifacts/config.json -DestinationPath $zipName
+        echo "asset-name=$zipName" >> $env:GITHUB_OUTPUT
+
+    - name: Upload Package
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-package
+        path: ${{ steps.package.outputs.asset-name }}
+        retention-days: 1
+
   release:
-    needs: [build, package, determine-version]
+    needs: [package]
     if: success()
     runs-on: windows-latest
     permissions:
@@ -110,8 +110,8 @@ jobs:
     - name: Download Artifacts
       uses: actions/download-artifact@v4
       with:
-        name: build-artifacts
-        path: output
+        name: release-package
+        path: release-files
 
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
