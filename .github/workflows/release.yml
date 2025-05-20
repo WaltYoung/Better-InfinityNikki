@@ -40,7 +40,7 @@ jobs:
     - name: Build with Nuitka
       run: |
         .\builder.bat
-        ren build/main.exe build/BetterIN.exe
+        ren main.exe BetterIN.exe
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
