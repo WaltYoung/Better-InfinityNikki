@@ -45,8 +45,38 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: build-artifacts
-        path: build/
+        name: build-output
+        path: |
+          main.exe
+          app/configure/config.json
+        retention-days: 1
+
+  package:
+    needs: [build, determine-version]
+    runs-on: windows-latest
+    outputs:
+      asset-name: ${{ steps.package.outputs.asset-name }}
+
+    steps:
+    - name: Download Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-output
+        path: artifacts
+
+    - name: Create Zip Package
+      id: package
+      run: |
+        $version = "${{ needs.determine-version.outputs.new-tag }}"
+        $zipName = "release-$version.zip"
+        Compress-Archive -Path artifacts/* -DestinationPath $zipName
+        echo "asset-name=$zipName" >> $env:GITHUB_OUTPUT
+
+    - name: Upload Package
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-package
+        path: ${{ steps.package.outputs.asset-name }}
         retention-days: 1
 
   determine-version:
@@ -92,8 +122,8 @@ jobs:
           Auto-generated release
           Commit SHA: ${{ github.sha }}
           Build Number: #${{ github.run_number }}
+          Package: ${{ needs.package.outputs.asset-name }}
         files: |
-          release-artifacts/**
-        prerelease: ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') }}
+          *.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
