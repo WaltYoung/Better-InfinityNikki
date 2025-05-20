@@ -45,7 +45,7 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: build-output
+        name: build-artifacts
         path: |
           main.exe
           app/configure/config.json
@@ -61,7 +61,7 @@ jobs:
     - name: Download Artifacts
       uses: actions/download-artifact@v4
       with:
-        name: build-output
+        name: build-artifacts
         path: artifacts
 
     - name: Create Zip Package
@@ -100,7 +100,7 @@ jobs:
         default_bump: minor
 
   release:
-    needs: [build, determine-version]
+    needs: [build, package, determine-version]
     if: success()
     runs-on: windows-latest
     permissions:
