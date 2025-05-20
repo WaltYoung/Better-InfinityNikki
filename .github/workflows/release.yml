@@ -69,7 +69,7 @@ jobs:
       run: |
         $version = "${{ needs.determine-version.outputs.new-tag }}"
         $zipName = "release-$version.zip"
-        Compress-Archive -Path artifacts/* -DestinationPath $zipName
+        Compress-Archive -Path output/* -DestinationPath $zipName
         echo "asset-name=$zipName" >> $env:GITHUB_OUTPUT
 
     - name: Upload Package
